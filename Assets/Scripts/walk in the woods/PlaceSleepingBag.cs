@@ -26,11 +26,21 @@ public class PlaceSleepingBag : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+
+
+        InitSleepingBag();
         setupGui();
+
+
+
+
+    }
+
+    void InitSleepingBag()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
         faderHasPlayed = false;
         lerpedColor = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, 1));
-
 
     }
 
@@ -94,10 +104,14 @@ public class PlaceSleepingBag : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")     //player has collided with trigger
         {
-            playerEntered = true;
-            showInteractMsg = true;
-
+            PlayerInTrigger();
         }
+    }
+     void PlayerInTrigger()
+    {
+        playerEntered = true;
+        showInteractMsg = true;
+
     }
 
     private void setupGui()

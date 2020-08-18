@@ -36,12 +36,26 @@ public class SunSet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InitSun();
+        
+    }
+
+    void InitSun()
+    {
         mainLight = GetComponent<Light>();
         skyMat = RenderSettings.skybox;
     }
 
-    // Update is called once per frame
+
+        // Update is called once per frame
     void Update()
+    {
+
+        ControlSunRotation();
+       
+
+    }
+    void ControlSunRotation()
     {
         float tRange = 1 - minPoint;
         float dot = Mathf.Clamp01((Vector3.Dot(mainLight.transform.forward, Vector3.down) - minPoint) / tRange);
@@ -70,7 +84,6 @@ public class SunSet : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q)) skySpeed *= 0.5f;
         if (Input.GetKeyDown(KeyCode.E)) skySpeed *= 2f;
-
 
     }
 }

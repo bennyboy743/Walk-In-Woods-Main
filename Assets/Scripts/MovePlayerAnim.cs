@@ -39,6 +39,8 @@ public class MovePlayerAnim : MonoBehaviour
         _animator.SetFloat("speed", speed);
         
     }
+
+
     
   
 }

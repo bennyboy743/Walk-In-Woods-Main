@@ -21,15 +21,25 @@ public class Invertory : MonoBehaviour
 
         if (inventoryEnabled == true)
         {
-            inventory.SetActive(true);
+            OpenInventory();
         }
         else
         {
-            inventory.SetActive(false);
+            CloseInventory();
         }
     }
 
-    
+    void OpenInventory()
+    {
+        inventory.SetActive(true);
+    }
+
+    void CloseInventory()
+    {
+        inventory.SetActive(false);
+    }
+
+
 
 }
 

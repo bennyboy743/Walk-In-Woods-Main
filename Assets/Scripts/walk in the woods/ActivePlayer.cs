@@ -13,13 +13,18 @@ public class ActivePlayer : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
+        FinishScene();
+    }
+
+    void FinishScene()
+    {
         // get the player ready when car scene is finshed
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
         FPSController.SetActive(true);
         playerInCar.SetActive(false);
-        
-    }
-    
 
-   
+    }
+
+
+
 }
