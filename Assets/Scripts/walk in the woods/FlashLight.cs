@@ -10,14 +10,10 @@ public class FlashLight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InitFlash();
-    }
-
-    void InitFlash()
-    {
         isActive = true;
         flashLight = GetComponent<Light>();
         flashLight.intensity = 3.5f;
+        
     }
 
     // Update is called once per frame
@@ -25,16 +21,9 @@ public class FlashLight : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            EnableFlashLight();
+            //turns the light on and off with the key f
+            isActive = !isActive;
+            flashLight.enabled = isActive;
         }
     }
-
-    void EnableFlashLight()
-    {
-        //turns the light on and off with the key f
-        isActive = !isActive;
-        flashLight.enabled = isActive;
-    }
-
-    
 }

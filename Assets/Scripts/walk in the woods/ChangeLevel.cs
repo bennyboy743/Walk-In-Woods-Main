@@ -11,14 +11,9 @@ public class ChangeLevel : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            ChangingLevel();
+            Debug.Log("teleport");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
      
-    }
-
-    void ChangingLevel()
-    {
-        Debug.Log("teleport");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
