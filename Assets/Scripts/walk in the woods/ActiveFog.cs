@@ -10,17 +10,26 @@ public class ActiveFog : MonoBehaviour
     Color lerpedColor = Color.black;
     void Start()
     {
-        lerpedColor = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, 1));
-        RenderSettings.fog = false;
-        RenderSettings.fogMode = FogMode.Exponential;
-        sun.GetComponent<Light>().color = lerpedColor;
-        sun.GetComponent<Light>().intensity = 0f;
-
+        InitFog();
 
     }
 
     // Update is called once per frame
     void Update()
+    {
+        UpdateFog();
+    }
+
+    void InitFog() 
+    {
+        lerpedColor = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, 1));
+        RenderSettings.fog = false;
+        RenderSettings.fogMode = FogMode.Exponential;
+        sun.GetComponent<Light>().color = lerpedColor;
+        sun.GetComponent<Light>().intensity = 0f;
+    }
+
+    void UpdateFog() 
     {
         RenderSettings.fog = fogActive;
         RenderSettings.fogDensity = fogDensity;
