@@ -13,6 +13,7 @@ public class OpenGate : MonoBehaviour
     private string msg;
     public BoxCollider disableBoxCollider;
     HoldItems hasItem;
+    public GameObject gateLock;
 
 
     private void Start()
@@ -51,12 +52,19 @@ public class OpenGate : MonoBehaviour
     {
         stateOfGate = true;
         gateOnOrClose = true;
+        lockRemove();
         gateAni.SetBool("open", stateOfGate);
         Debug.Log(stateOfGate);
         
 
     }
-    
+
+    void lockRemove()
+    {
+        gateLock.SetActive(false);
+    }
+
+
     void CloseGate()
     {
         stateOfGate = false;
