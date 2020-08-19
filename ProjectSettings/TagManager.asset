@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - boltcutter
+  - log
   layers:
   - Default
   - TransparentFX
