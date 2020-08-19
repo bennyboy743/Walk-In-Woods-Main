@@ -5,12 +5,15 @@ using UnityEngine;
 public class HoldItems : MonoBehaviour
 {
 
-    private HoldItems holdingItems;
-    public GameObject[] itemsInBagPack;
+    public List<GameObject> itemsInBagPack;
     private bool isBoltCutter;
-    private int item;
+    
 
- 
+    private void Start()
+    {
+        //debug prepose, just so i dont have to pick up the item
+        isBoltCutter = true;
+    }
 
     // Update is called once per frame
     void Update()
@@ -18,10 +21,9 @@ public class HoldItems : MonoBehaviour
         
     }
 
-    public void AddItem()
+    public void AddItem(object item)
     {
-        item = item + 1;
-        isBoltCutter = true;
+        //itemsInBagPack.Add(item);
     }
 
     public bool HasBoltCutter() 
@@ -36,10 +38,7 @@ public class HoldItems : MonoBehaviour
         }
     }
 
-    public int Showitems()
-    {
-        return item;
-    }
+    
 
     
 }

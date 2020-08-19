@@ -49,14 +49,16 @@ public class PickUp : MonoBehaviour
             RaycastHit hit;
 
             
-            if(Physics.Raycast(ray, out hit))
+            if(Physics.Raycast(ray, out hit, reachRange))
             {
                 PickUpAble p = hit.collider.GetComponent<PickUpAble>();
                 if(p != null)
                 {
                     itemPickUp = true;
-                    string itemTag = p.tag;
-                    Debug.Log("picking up " + itemTag);
+                    object itemObj = hit.transform.gameObject;
+                    Debug.Log(itemObj);
+                    holdingItems.AddItem(itemObj);
+                    Debug.Log("picking up " + itemObj);
                     Destroy(hit.transform.gameObject);
                 }
             }
