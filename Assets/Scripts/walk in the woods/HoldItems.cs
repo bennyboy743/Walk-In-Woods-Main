@@ -6,19 +6,11 @@ public class HoldItems : MonoBehaviour
 {
 
     private HoldItems holdingItems;
+    public GameObject[] itemsInBagPack;
     private bool isBoltCutter;
     private int item;
 
-    private void Awake()
-    {
-        
-    }
-
-   
-    void Start()
-    {
-        
-    }
+ 
 
     // Update is called once per frame
     void Update()

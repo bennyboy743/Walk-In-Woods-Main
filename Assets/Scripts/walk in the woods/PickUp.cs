@@ -7,68 +7,68 @@ public class PickUp : MonoBehaviour
     // Start is called before the first frame update
 
     HoldItems holdingItems;
-    public GameObject boltCutter;
+   // public GameObject boltCutter;
     private Camera fpsCam;
     private int rayLayerMask;
     public float reachRange = 1.8f;
     private string msg;
     private bool showInteractMsg;
     private GUIStyle guiStyle;
+    private bool playerEntered;
+    public bool itemPickUp;
 
 
     void Start()
-   {
+    {
         holdingItems = GameObject.FindObjectOfType<HoldItems>();
         fpsCam = Camera.main;
         setupGui();
 
-
-
+       
     }
 
     // Update is called once per frame
 
     private void Update()
     {
-        IsItem();
+        PickedUpItem();
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
+  
 
-        Debug.Log("Pick up object");
-        if(other.tag == "Player")
+    
+    public void PickedUpItem()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            PickedUpItem(boltCutter);
-        }
-    }
+            int x = Screen.width / 2;
+            int y = Screen.height / 2;
 
-    public void PickedUpItem(GameObject item)
-    {
+            Ray ray = fpsCam.ScreenPointToRay(new Vector3(x, y));
+            RaycastHit hit;
 
-        holdingItems.AddItem();
-        Debug.Log(holdingItems.Showitems());
-        Destroy(item);
-    }
-
-    public void IsItem()
-    {
-        Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
-        RaycastHit hit;
-
-        //if raycast hits a collider on the rayLayerMask
-        if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, 10))
-        {
-            //that is a item
-            Debug.Log(hit.collider.tag);
-            if(hit.collider.tag == "log")
+            
+            if(Physics.Raycast(ray, out hit))
             {
-                showInteractMsg = true;
-                msg = "Pick up log";
+                PickUpAble p = hit.collider.GetComponent<PickUpAble>();
+                if(p != null)
+                {
+                    itemPickUp = true;
+                    string itemTag = p.tag;
+                    Debug.Log("picking up " + itemTag);
+                    Destroy(hit.transform.gameObject);
+                }
             }
         }
     }
+
+    public void DropingItem()
+    {
+
+    }
+
+    
 
     private void setupGui()
     {
