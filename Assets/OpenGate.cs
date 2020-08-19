@@ -12,13 +12,13 @@ public class OpenGate : MonoBehaviour
     private GUIStyle gui;
     private string msg;
     public BoxCollider disableBoxCollider;
+    HoldItems hasItem;
+
 
     private void Start()
     {
         gateAni = GetComponent<Animator>();
-        disableBoxCollider = GetComponent<BoxCollider>();
-
-
+        hasItem = GameObject.FindObjectOfType<HoldItems>();
         setupGui();
     }
 
@@ -27,10 +27,24 @@ public class OpenGate : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.E) & playerInSpot)
         {
-            PlayerOpenGate();
+            
+            if (hasItem.HasBoltCutter())
+            {
+                PlayerOpenGate();
+            }
+            else
+            {
+                PlayAudio();
+            }
+            
         }
     }
 
+    void PlayAudio()
+    {
+        //play saying need bolt cutters
+        Debug.Log("Need bolt cutters");
+    }
     
 
     void PlayerOpenGate()
@@ -60,6 +74,7 @@ public class OpenGate : MonoBehaviour
         }
     }
 
+    
     private void OnTriggerExit(Collider other)
     {
         //work in progress, need to work out why it wont close

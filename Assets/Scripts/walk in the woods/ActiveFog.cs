@@ -30,7 +30,6 @@ public class ActiveFog : MonoBehaviour
 
     void UpdateFog()
     {
-    {
         RenderSettings.fog = fogActive;
         RenderSettings.fogDensity = fogDensity;
     }
