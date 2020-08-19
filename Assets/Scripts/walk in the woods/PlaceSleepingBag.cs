@@ -26,14 +26,8 @@ public class PlaceSleepingBag : MonoBehaviour
 
     private void Start()
     {
-
-
         InitSleepingBag();
         setupGui();
-
-
-
-
     }
 
     void InitSleepingBag()
@@ -49,13 +43,11 @@ public class PlaceSleepingBag : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) & playerEntered)
         {
-            
             PutDownSleepingBag();
             if (canSleep)
             {
                Sleep();
             }
-
         }
     }
 
