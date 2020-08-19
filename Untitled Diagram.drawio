@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-08-19T05:09:46.265Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36" etag="XI9bGYCbRYcadFphylHg" version="13.6.3" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2020-08-19T05:18:58.001Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36" etag="37QqRjR0Nd33_5tJhihr" version="13.6.3" type="github" pages="2">
   <diagram name="Page-1" id="c7558073-3199-34d8-9f00-42111426c3f3">
     <mxGraphModel dx="775" dy="2898" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169" background="#ffffff" math="0" shadow="0">
       <root>
@@ -166,16 +166,28 @@
             <mxPoint x="350" y="-1440" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="_qLyulMenoWbDYzbR9PP-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XMxbK8WsTa2ADnXvfVdc-137" target="_qLyulMenoWbDYzbR9PP-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="XMxbK8WsTa2ADnXvfVdc-137" value="Change Level To Forest&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="300" y="-1440" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="J2BOZcWo1bYDgacf_RLs-2" value="Change Scene&lt;br&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="293" y="-1380" width="120" height="80" as="geometry" />
+          <mxGeometry x="290" y="-1330" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="J2BOZcWo1bYDgacf_RLs-3" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="XMxbK8WsTa2ADnXvfVdc-137" target="J2BOZcWo1bYDgacf_RLs-2">
+        <mxCell id="J2BOZcWo1bYDgacf_RLs-3" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="XMxbK8WsTa2ADnXvfVdc-137">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="410" y="-1370" as="sourcePoint" />
-            <mxPoint x="460" y="-1420" as="targetPoint" />
+            <mxPoint x="350" y="-1380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_qLyulMenoWbDYzbR9PP-1" value="Disable Movent" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="-1380" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_qLyulMenoWbDYzbR9PP-3" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="_qLyulMenoWbDYzbR9PP-1" target="J2BOZcWo1bYDgacf_RLs-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="-1300" as="sourcePoint" />
+            <mxPoint x="400" y="-1350" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
@@ -186,6 +198,12 @@
       <root>
         <mxCell id="sJrDIXWh6V2aXwYP85S5-0" />
         <mxCell id="sJrDIXWh6V2aXwYP85S5-1" parent="sJrDIXWh6V2aXwYP85S5-0" />
+        <mxCell id="hMV0rJxQYUgRWqs-OZB2-0" value="Forest Scene&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="sJrDIXWh6V2aXwYP85S5-1">
+          <mxGeometry x="55" y="50" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hMV0rJxQYUgRWqs-OZB2-1" value="CutScene" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="sJrDIXWh6V2aXwYP85S5-1">
+          <mxGeometry x="294" y="60" width="120" height="80" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
