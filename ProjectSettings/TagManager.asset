@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - boltcutter
+  - log
+  - meds
+  - apple
+  - bandages
+  - battery
+  - water bottle
+  - gas can
+  - notes
   layers:
   - Default
   - TransparentFX
