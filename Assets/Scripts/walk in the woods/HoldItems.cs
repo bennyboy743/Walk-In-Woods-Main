@@ -20,7 +20,7 @@ public class HoldItems : MonoBehaviour
 
     public void AddItem(GameObject item)
     {
-        Debug.Log( item.name +  "has been added to inventory" );
+        Debug.Log( item.name + " has been added to inventory" );
         itemsInBagPack.Add(item.name);
     }
 
