@@ -5,7 +5,7 @@ using UnityEngine;
 public class HoldItems : MonoBehaviour
 {
 
-    public List<GameObject> itemsInBagPack;
+    public List<GameObject> itemsInBagPack = new List<GameObject>();
     private bool isBoltCutter;
     
 
@@ -21,9 +21,9 @@ public class HoldItems : MonoBehaviour
         
     }
 
-    public void AddItem(object item)
+    public void AddItem(GameObject item)
     {
-        //itemsInBagPack.Add(item);
+        itemsInBagPack.Add(item);
     }
 
     public bool HasBoltCutter() 

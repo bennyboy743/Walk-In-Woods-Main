@@ -55,7 +55,7 @@ public class PickUp : MonoBehaviour
                 if(p != null)
                 {
                     itemPickUp = true;
-                    object itemObj = hit.transform.gameObject;
+                    GameObject itemObj = hit.transform.gameObject;
                     Debug.Log(itemObj);
                     holdingItems.AddItem(itemObj);
                     Debug.Log("picking up " + itemObj);
