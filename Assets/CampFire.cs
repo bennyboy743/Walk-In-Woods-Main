@@ -22,7 +22,9 @@ public class CampFire : MonoBehaviour
         fireFlame = fire.GetComponent<Light>();
         fireP = firePartical.GetComponent<ParticleSystem>();
 
-        fireFlame.enabled = true;
+        //fireFlame.enabled = true;
+
+        maxLogs = 6;
 
     }
 
