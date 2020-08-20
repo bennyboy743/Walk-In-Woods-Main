@@ -17,6 +17,7 @@ public class PlaceSleepingBag : MonoBehaviour
     public Material skyBox;
     public GameObject sun;
     public bool faderHasPlayed;
+    public bool fireHasStarted;
     Color lerpedColor = Color.white;
 
 
@@ -28,6 +29,8 @@ public class PlaceSleepingBag : MonoBehaviour
     {
         InitSleepingBag();
         setupGui();
+
+        fireHasStarted = false;
     }
 
     void InitSleepingBag()
@@ -41,10 +44,11 @@ public class PlaceSleepingBag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.E) & playerEntered)
         {
             PutDownSleepingBag();
-            if (canSleep)
+            if (AbleToSleep())
             {
                Sleep();
             }
@@ -68,11 +72,24 @@ public class PlaceSleepingBag : MonoBehaviour
 
     }
 
-    IEnumerator AbleToSleep()
+    public bool AbleToSleep()
     {
-        yield return new WaitForSeconds(3f);
-        canSleep = true;
-        msg = "E to sleep";
+        if (fireHasStarted == true)
+        {
+            msg = "E to sleep";
+            return true;
+        }
+        else
+        {
+            msg = "Cant sleep need fire";
+            return false;
+        }
+            
+
+        //canSleep = true;
+        
+
+        
     }
 
     public void PutDownSleepingBag()
@@ -80,15 +97,14 @@ public class PlaceSleepingBag : MonoBehaviour
         sleepingBagPlaced = true;
         sleepingBag.SetActive(true);
         msg = " ";
-        StartCoroutine(AbleToSleep());
     }
 
     public void Sleep()
     {
-        if (sleepingBagPlaced && canSleep)
+        if (sleepingBagPlaced && AbleToSleep())
         {
            
-           StartCoroutine(ShowFader());
+           //StartCoroutine(ShowFader());
         }
     }
 
