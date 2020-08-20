@@ -5,40 +5,57 @@ using UnityEngine;
 public class HoldItems : MonoBehaviour
 {
 
-    public List<GameObject> itemsInBagPack = new List<GameObject>();
-    private bool isBoltCutter;
+    public List<string> itemsInBagPack = new List<string>();
+    //private bool isBoltCutter;
     
 
     private void Start()
     {
         //debug prepose, just so i dont have to pick up the item
-        isBoltCutter = true;
+        //isBoltCutter = true;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     public void AddItem(GameObject item)
     {
-        itemsInBagPack.Add(item);
+        Debug.Log( item.name +  "has been added to inventory" );
+        itemsInBagPack.Add(item.name);
     }
 
-    public bool HasBoltCutter() 
+   
+
+    public string HasItemInventory()
+
     {
-        if (isBoltCutter)
+        for (int i = 0; i < itemsInBagPack.Count; i++)
         {
-            return true;
+            Debug.Log(itemsInBagPack[i]);
+            return itemsInBagPack[i];
         }
-        else
-        {
-            return false;
-        }
+
+        return ""; 
     }
 
-    
 
-    
+
+    /*
+   public bool HasBoltCutter() 
+   {
+
+       if (isBoltCutter)
+       {
+           return true;
+       }
+       else
+       {
+           return false;
+       }
+
+   }
+
+   */
+
+
 }
