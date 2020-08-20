@@ -20,6 +20,8 @@ public class PlaceSleepingBag : MonoBehaviour
     public bool fireHasStarted;
     Color lerpedColor = Color.white;
 
+    CampFire statesOfFire;
+
 
 
 
@@ -74,7 +76,7 @@ public class PlaceSleepingBag : MonoBehaviour
 
     public bool AbleToSleep()
     {
-        if (fireHasStarted == true)
+        if (statesOfFire.HasFireStarted())
         {
             msg = "E to sleep";
             return true;
