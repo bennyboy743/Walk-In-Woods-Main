@@ -23,8 +23,11 @@ public class PickUp : MonoBehaviour
         holdingItems = GameObject.FindObjectOfType<HoldItems>();
         fpsCam = Camera.main;
         setupGui();
+        LayerMask iRayLM = LayerMask.NameToLayer("InteractRaycast");
+        rayLayerMask = 1 << iRayLM.value;
 
-       
+
+
     }
 
     // Update is called once per frame
@@ -40,27 +43,36 @@ public class PickUp : MonoBehaviour
     
     public void PickedUpItem()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        int x = Screen.width / 2;
+        int y = Screen.height / 2;
+
+        Ray ray = fpsCam.ScreenPointToRay(new Vector3(x, y));
+        RaycastHit hit;
+
+
+        if (Physics.Raycast(ray, out hit, reachRange, rayLayerMask))
         {
-            int x = Screen.width / 2;
-            int y = Screen.height / 2;
+            showInteractMsg = true;
+            PickUpAble p = hit.collider.GetComponent<PickUpAble>();
+            GameObject itemObj = hit.collider.gameObject;
+            msg = "hit [E] to pick up " + itemObj.name;
 
-            Ray ray = fpsCam.ScreenPointToRay(new Vector3(x, y));
-            RaycastHit hit;
+            Debug.Log(msg);
 
-            
-            if(Physics.Raycast(ray, out hit, reachRange))
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                PickUpAble p = hit.collider.GetComponent<PickUpAble>();
-                if(p != null)
+                if (p != null)
                 {
                     itemPickUp = true;
-                    GameObject itemObj = hit.collider.gameObject;
-                    holdingItems.AddItem(itemObj);  
+                    holdingItems.AddItem(itemObj);
                     Debug.Log("picking up " + itemObj);
                     Destroy(hit.transform.gameObject);
                 }
             }
+        }
+        else
+        {
+            showInteractMsg = false;
         }
     }
 
