@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 68581376}
   - component: {fileID: 68581375}
   - component: {fileID: 68581374}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Logs (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -914,7 +914,7 @@ GameObject:
   - component: {fileID: 107783389}
   - component: {fileID: 107783388}
   - component: {fileID: 107783387}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Logs (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6690,7 +6690,7 @@ GameObject:
   - component: {fileID: 230251108}
   - component: {fileID: 230251107}
   - component: {fileID: 230251106}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Logs (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7763,6 +7763,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: apple
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537866632189853615, guid: 06fb1f5773ded674bba38d274f2deeac,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06fb1f5773ded674bba38d274f2deeac, type: 3}
@@ -9424,7 +9429,7 @@ GameObject:
   - component: {fileID: 686417981}
   - component: {fileID: 686417980}
   - component: {fileID: 686417979}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Logs (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10049,7 +10054,7 @@ GameObject:
   - component: {fileID: 905435131}
   - component: {fileID: 905435130}
   - component: {fileID: 905435129}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Logs (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10935,6 +10940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoffeeTable
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 87dbd671cf01c4a2092308da3db7c073, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 87dbd671cf01c4a2092308da3db7c073, type: 3}
       propertyPath: m_LocalPosition.x
       value: 222.258
@@ -11309,7 +11318,7 @@ GameObject:
   - component: {fileID: 1076006340}
   - component: {fileID: 1076006339}
   - component: {fileID: 1076006338}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Logs (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12804,6 +12813,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: bandages
       objectReference: {fileID: 0}
+    - target: {fileID: 6411129427033337350, guid: 860b5464b10393540879b2a675c0c0a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 860b5464b10393540879b2a675c0c0a5, type: 3}
 --- !u!4 &1373214701 stripped
@@ -12831,7 +12845,7 @@ GameObject:
   - component: {fileID: 1380577572}
   - component: {fileID: 1380577571}
   - component: {fileID: 1380577570}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Logs (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13672,6 +13686,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: gas can
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600220275300047497, guid: 477acb708bb3c6a4086e7634be446fae,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5600220275300047500, guid: 477acb708bb3c6a4086e7634be446fae,
         type: 3}
@@ -15414,6 +15433,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: battery
       objectReference: {fileID: 0}
+    - target: {fileID: 1201578146629326663, guid: 4d2476fa0d0463149b0838ccb81cbe7f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d2476fa0d0463149b0838ccb81cbe7f, type: 3}
 --- !u!1 &2009886133
@@ -16090,6 +16114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BoltCutters
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259670913532777581, guid: 9473cdc65d4ff4343a616e8d0a8044f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9473cdc65d4ff4343a616e8d0a8044f0, type: 3}
