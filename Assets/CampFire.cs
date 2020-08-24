@@ -10,8 +10,14 @@ public class CampFire : MonoBehaviour
     private Light fireFlame;
     private ParticleSystem fireP;
     public bool fireStart;
+
+    public GameObject[] allLogs;
+    private bool playerIntrigger;
     
-    
+
+
+
+
     private int logs;
     //amount to start the fire
     private int maxLogs;
@@ -32,15 +38,18 @@ public class CampFire : MonoBehaviour
     void Update()
     {
         //fireFlame.intensity = Random.Range(3.8f,9f);
-       // fireP.Play();
+        // fireP.Play();
+
+        AddLogsToFire();
+        Debug.Log(logsThatHaveBeenAdd());
     }
 
-    void StartFire()
+     public void StartFire()
     {
         if(logsThatHaveBeenAdd() >= maxLogs)
         {
             Debug.Log("starting fire");
-            fireStart = true;
+            fireStart = false;
         }
     }
 
@@ -51,11 +60,44 @@ public class CampFire : MonoBehaviour
 
     public void AddLogsToFire()
     {
+        if (!playerIntrigger)
+            return;
+
+        if (logsThatHaveBeenAdd() == maxLogs)
+        {
+            StartFire();
+        }
+
         //count of how many logs we have added to the fire
+        if (Input.GetKeyDown(KeyCode.E) && playerIntrigger && logsThatHaveBeenAdd() < maxLogs)
+        {
+            logs++;
+            allLogs[logs].SetActive(true);
+            Debug.Log("Player is ready to put down a log");
+        }
     }
 
     public bool HasFireStarted()
     {
         return fireStart;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            playerIntrigger = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerIntrigger = false;
+        }
+    }
+
+
+
 }

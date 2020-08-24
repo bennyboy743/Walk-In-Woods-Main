@@ -20,7 +20,7 @@ public class PlaceSleepingBag : MonoBehaviour
     public bool fireHasStarted;
     Color lerpedColor = Color.white;
 
-    CampFire statesOfFire;
+    public CampFire statesOfFire;
 
 
 
