@@ -16,6 +16,9 @@ public class PickUp : MonoBehaviour
     private GUIStyle guiStyle;
     private bool playerEntered;
     public bool itemPickUp;
+    
+
+     
 
 
     void Start()
@@ -49,16 +52,18 @@ public class PickUp : MonoBehaviour
         Ray ray = fpsCam.ScreenPointToRay(new Vector3(x, y));
         RaycastHit hit;
 
+       
 
+         
         if (Physics.Raycast(ray, out hit, reachRange, rayLayerMask))
-        {
+            {
             showInteractMsg = true;
             PickUpAble p = hit.collider.GetComponent<PickUpAble>();
             GameObject itemObj = hit.collider.gameObject;
             msg = "hit [E] to pick up " + itemObj.name;
 
-            Debug.Log(msg);
-
+            //Debug.Log(msg);
+           
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (p != null)
