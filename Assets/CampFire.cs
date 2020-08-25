@@ -28,6 +28,8 @@ public class CampFire : MonoBehaviour
         fireFlame = fire.GetComponent<Light>();
         fireP = firePartical.GetComponent<ParticleSystem>();
 
+        fireStart = false;
+
         //fireFlame.enabled = true;
 
         maxLogs = 6;
@@ -49,7 +51,7 @@ public class CampFire : MonoBehaviour
         if(logsThatHaveBeenAdd() >= maxLogs)
         {
             Debug.Log("starting fire");
-            fireStart = false;
+            fireStart = true;
         }
     }
 
@@ -73,7 +75,7 @@ public class CampFire : MonoBehaviour
         {
             logs++;
             allLogs[logs].SetActive(true);
-            Debug.Log("Player is ready to put down a log");
+            Debug.Log("log added" +  logs);
         }
     }
 

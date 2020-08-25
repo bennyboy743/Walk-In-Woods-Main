@@ -25,12 +25,8 @@ public class PickUp : MonoBehaviour
     {
         holdingItems = GameObject.FindObjectOfType<HoldItems>();
         fpsCam = Camera.main;
-        setupGui();
         LayerMask iRayLM = LayerMask.NameToLayer("InteractRaycast");
         rayLayerMask = 1 << iRayLM.value;
-
-
-
     }
 
     // Update is called once per frame
@@ -78,32 +74,6 @@ public class PickUp : MonoBehaviour
         else
         {
             showInteractMsg = false;
-        }
-    }
-
-    public void DropingItem()
-    {
-
-    }
-
-    
-
-    private void setupGui()
-    {
-        guiStyle = new GUIStyle();
-        guiStyle.fontSize = 16;
-        guiStyle.fontStyle = FontStyle.Bold;
-        guiStyle.normal.textColor = Color.red;
-        msg = "";
-    }
-
-
-    void OnGUI()
-    {
-        //show on-screen prompts to user for guide.
-        if (showInteractMsg)  //show on-screen prompts to user for guide.
-        {
-            GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 + 10, 200, 50), msg, guiStyle);
         }
     }
 }
