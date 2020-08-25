@@ -11,16 +11,16 @@ public class PickUp : MonoBehaviour
     private Camera fpsCam;
     private int rayLayerMask;
     public float reachRange = 1.8f;
-    private string msg;
+    
     private bool showInteractMsg;
     private GUIStyle guiStyle;
     private bool playerEntered;
     public bool itemPickUp;
+
+    public UiHolder msg;
     
 
      
-
-
     void Start()
     {
         holdingItems = GameObject.FindObjectOfType<HoldItems>();
@@ -36,30 +36,18 @@ public class PickUp : MonoBehaviour
         PickedUpItem();
     }
 
-
-  
-
-    
     public void PickedUpItem()
     {
         int x = Screen.width / 2;
         int y = Screen.height / 2;
-
         Ray ray = fpsCam.ScreenPointToRay(new Vector3(x, y));
         RaycastHit hit;
-
-       
-
-         
         if (Physics.Raycast(ray, out hit, reachRange, rayLayerMask))
-            {
-            showInteractMsg = true;
+        {
+            msg.ShowMessage(true);
             PickUpAble p = hit.collider.GetComponent<PickUpAble>();
             GameObject itemObj = hit.collider.gameObject;
-            msg = "hit [E] to pick up " + itemObj.name;
-
-            //Debug.Log(msg);
-           
+            msg.AddUiMsg("hit [E] to pick up " + itemObj.name);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (p != null)
@@ -73,7 +61,7 @@ public class PickUp : MonoBehaviour
         }
         else
         {
-            showInteractMsg = false;
+            msg.ShowMessage(false);
         }
     }
 }
