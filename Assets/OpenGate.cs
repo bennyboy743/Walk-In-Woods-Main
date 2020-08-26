@@ -5,12 +5,9 @@ using UnityEngine;
 public class OpenGate : MonoBehaviour
 {
     public bool stateOfGate;
-    private bool gateOnOrClose;
     public Animator gateAni;
     private bool playerInSpot;
-    private bool showInteractMsg;
-    private GUIStyle gui;
-    private string msg;
+    public UiHolder uiHolder;
     public BoxCollider disableBoxCollider;
     HoldItems hasItem;
     public GameObject gateLock;
@@ -20,7 +17,7 @@ public class OpenGate : MonoBehaviour
     {
         gateAni = GetComponent<Animator>();
         hasItem = GameObject.FindObjectOfType<HoldItems>();
-        setupGui();
+        
     }
 
     private void Update()
@@ -37,7 +34,7 @@ public class OpenGate : MonoBehaviour
             {
                 PlayAudio();
             }
-           
+
             
         }
     }
@@ -52,7 +49,6 @@ public class OpenGate : MonoBehaviour
     void PlayerOpenGate()
     {
         stateOfGate = true;
-        gateOnOrClose = true;
         lockRemove();
         gateAni.SetBool("open", stateOfGate);
         Debug.Log(stateOfGate);
@@ -77,9 +73,9 @@ public class OpenGate : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            showInteractMsg = true; 
+            uiHolder.ShowMessage(true);
             playerInSpot = true;
-            msg = " press [E] open gate";
+            uiHolder.AddUiMsg("press [E] open gate",false);
         }
     }
 
@@ -89,26 +85,6 @@ public class OpenGate : MonoBehaviour
         //work in progress, need to work out why it wont close
         //CloseGate();
         playerInSpot = false;
-        showInteractMsg = false; 
+        uiHolder.ShowMessage(false);
     }
-    private void setupGui()
-    {
-        gui = new GUIStyle();
-        gui.fontSize = 16;
-        gui.fontStyle = FontStyle.Bold;
-        gui.normal.textColor = Color.red;
-        msg = "test";
-    }
-
-
-    void OnGUI()
-    {
-        //show on-screen prompts to user for guide.
-        if (showInteractMsg)  //show on-screen prompts to user for guide.
-        {
-            GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 + 10, 200, 50), msg, gui);
-        }
-    }
-
-
 }

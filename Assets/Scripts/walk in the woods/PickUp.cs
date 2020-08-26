@@ -12,12 +12,12 @@ public class PickUp : MonoBehaviour
     private int rayLayerMask;
     public float reachRange = 1.8f;
     
-    private bool showInteractMsg;
-    private GUIStyle guiStyle;
-    private bool playerEntered;
+   
     public bool itemPickUp;
 
-    public UiHolder msg;
+    public Transform Player;
+
+     public UiHolder pickUpMsg;
     
 
      
@@ -33,10 +33,12 @@ public class PickUp : MonoBehaviour
 
     private void Update()
     {
-        PickedUpItem();
+        ShowItemAboutToPickUp();
     }
 
-    public void PickedUpItem()
+ 
+
+    public void ShowItemAboutToPickUp()
     {
         int x = Screen.width / 2;
         int y = Screen.height / 2;
@@ -44,24 +46,33 @@ public class PickUp : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, reachRange, rayLayerMask))
         {
-            msg.ShowMessage(true);
+            pickUpMsg.ShowMessage(true);
             PickUpAble p = hit.collider.GetComponent<PickUpAble>();
             GameObject itemObj = hit.collider.gameObject;
-            msg.AddUiMsg("hit [E] to pick up " + itemObj.name);
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                if (p != null)
-                {
-                    itemPickUp = true;
-                    holdingItems.AddItem(itemObj);
-                    Debug.Log("picking up " + itemObj);
-                    Destroy(hit.transform.gameObject);
-                }
-            }
+            pickUpMsg.AddUiMsg("hit [E] to pick up " + itemObj.name);
+            PickedUpItem(p, itemObj);
         }
         else
         {
-            msg.ShowMessage(false);
+            pickUpMsg.ShowMessage(false);
         }
+    }
+    
+
+    public void PickedUpItem(PickUpAble pickup, GameObject item)
+    {
+        if (Input.GetKey(KeyCode.E))
+        {
+            if (pickup != null)
+            {
+                pickUpMsg.ShowMessage(false);
+                itemPickUp = true;
+                holdingItems.AddItem(item);
+                Debug.Log("picking up " + item);
+                Destroy(pickup.transform.gameObject);
+            }
+
+        }
+
     }
 }
