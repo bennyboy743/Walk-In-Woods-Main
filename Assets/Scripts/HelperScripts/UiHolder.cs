@@ -8,9 +8,11 @@ public class UiHolder : MonoBehaviour
     private GUIStyle guiStyle;
     private string uiMsg;
     private string nonPickMsg;
-    private bool showInteractMsg;
-    private bool nonPickMsgshowInteractMsg;
-    private int ChangeIntract;
+    private string actionMsg;
+    public bool showInteractMsg;
+    public bool nonPickMsgshowInteractMsg;
+    public bool actionShowMsg;
+    
 
 
 
@@ -29,53 +31,43 @@ public class UiHolder : MonoBehaviour
     }
     
     // items that player can pick up
-    public void AddUiMsg(string msg)
-    {
-        uiMsg = msg;
-        ChangeIntract = 1;
-    }
-    //for doors gates anything the player cant pick up
-    public void AddUiMsg(string msg, bool pickUp)
-    {
-        nonPickMsg = msg;
-        ChangeIntract = 2;
-
-    }
-
-    // items that player can pick up
-    public void ShowMessage ( bool showAble)
-    {
-        showInteractMsg = showAble;
-    }
-
-    //for doors gates anything the player cant pick up
    
-
-    public bool PlayerInTrigger(bool playerInSpot)
+    public void ShowMessage(string msg, int ChangeIntract)
     {
-        return playerInSpot;
-    }
+        
+        if (ChangeIntract == 1)
+        {
+            //for doors and placing down Items
+            nonPickMsg = "hit [E] " + msg;
+        }else if (ChangeIntract == 2)
+        {
+            //for picking up items
+            uiMsg = "hit [E] to pick up " + msg;
+        }else if(ChangeIntract == 3)
+        {
+            actionMsg =  msg;
+        }
 
+    }
 
     void OnGUI()
     {
-        //show on-screen prompts to user for guide.
-        //show on-screen prompts to user for guide
-        /*
-       bool playerIsInTrigger = PlayerInTrigger();
+        //show on-screen prompts to user for guide.0
 
-
-        if () ;
-        {
-            GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 + 10, 200, 50), uiMsg, guiStyle);
-        }
-        else
+        if (nonPickMsgshowInteractMsg)
         {
             GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 + 10, 200, 50), nonPickMsg, guiStyle);
         }
-        */
-        
-        
+
+        if (showInteractMsg)
+        {
+            GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 + 10, 200, 50), uiMsg, guiStyle);
+        }
+
+        if (actionShowMsg)
+        {
+            GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 + 10, 200, 50), actionMsg, guiStyle);
+        }
     }
 }
 

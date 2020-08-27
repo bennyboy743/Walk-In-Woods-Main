@@ -21,17 +21,12 @@ public class PlaceSleepingBag : MonoBehaviour
     Color lerpedColor = Color.white;
 
     public CampFire statesOfFire;
-
-
-
-
+    public UiHolder interactMsg;
 
 
     private void Start()
     {
         InitSleepingBag();
-        setupGui();
-
         fireHasStarted = false;
     }
 
@@ -40,13 +35,11 @@ public class PlaceSleepingBag : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         faderHasPlayed = false;
         lerpedColor = Color.Lerp(Color.white, Color.black, Mathf.PingPong(Time.time, 1));
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.E) & playerEntered)
         {
             PutDownSleepingBag();
@@ -65,40 +58,35 @@ public class PlaceSleepingBag : MonoBehaviour
         RenderSettings.skybox = skyBox;
         sun.GetComponent<Light>().intensity = 1.03f;
         sun.GetComponent<Light>().color = lerpedColor;
-
-        
-        msg = " ";
         faderHasPlayed = true;
         yield return new WaitForSeconds(10f);
         fader.SetActive(false);
-
     }
 
     public bool AbleToSleep()
     {
         if (statesOfFire.HasFireStarted())
         {
-            msg = "E to sleep";
+            interactMsg.ShowMessage("to sleep", 1);
             return true;
         }
         else
         {
-            msg = "Cant sleep need fire";
+            interactMsg.ShowMessage("Cant sleep need fire", 3);
             return false;
         }
             
 
         //canSleep = true;
-        
-
-        
     }
 
     public void PutDownSleepingBag()
     {
+        
+        ShowGetFireGoingMsg();
         sleepingBagPlaced = true;
         sleepingBag.SetActive(true);
-        msg = " ";
+        
     }
 
     public void Sleep()
@@ -114,43 +102,40 @@ public class PlaceSleepingBag : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")     //player has collided with trigger
         {
+            if (sleepingBagPlaced)
+            {
+                ShowGetFireGoingMsg();
+            }
+            else
+            {
+                interactMsg.nonPickMsgshowInteractMsg = true;
+                interactMsg.ShowMessage("place sleeping Bag ", 1);
+            }
+
+            //interactMsg.actionShowMsg = true;
+            
             PlayerInTrigger();
         }
+    }
+
+    void ShowGetFireGoingMsg()
+    {
+        interactMsg.nonPickMsgshowInteractMsg = false;
+        interactMsg.actionShowMsg = true;
     }
      void PlayerInTrigger()
     {
         playerEntered = true;
-        showInteractMsg = true;
-
+        
     }
-
-    private void setupGui()
-    {
-        guiStyle = new GUIStyle();
-        guiStyle.fontSize = 16;
-        guiStyle.fontStyle = FontStyle.Bold;
-        guiStyle.normal.textColor = Color.red;
-        msg = "Press E To Place Sleeping Bag";
-    }
-
-
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject == player)     //player has exited trigger
         {
+            interactMsg.actionShowMsg = false;
+            interactMsg.nonPickMsgshowInteractMsg = false;
+            interactMsg.ShowMessage(" ", 1);
             playerEntered = false;
-            //hide interact message as player may not have been looking at object when they left
-            showInteractMsg = false;
-        }
-    }
-
-
-    void OnGUI()
-    {
-        //show on-screen prompts to user for guide.
-        if (showInteractMsg)  //show on-screen prompts to user for guide.
-        {
-            GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 + 10, 200, 50), msg, guiStyle);
         }
     }
 }

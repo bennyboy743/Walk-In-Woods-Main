@@ -73,9 +73,10 @@ public class OpenGate : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            uiHolder.ShowMessage(true);
+            uiHolder.ShowMessage("Open Gate",1);
+            uiHolder.nonPickMsgshowInteractMsg = true;
             playerInSpot = true;
-            uiHolder.AddUiMsg("press [E] open gate",false);
+            
         }
     }
 
@@ -85,6 +86,7 @@ public class OpenGate : MonoBehaviour
         //work in progress, need to work out why it wont close
         //CloseGate();
         playerInSpot = false;
-        uiHolder.ShowMessage(false);
+        uiHolder.ShowMessage(" ",1);
+        uiHolder.nonPickMsgshowInteractMsg = false;
     }
 }

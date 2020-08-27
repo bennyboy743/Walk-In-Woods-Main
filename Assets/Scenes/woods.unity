@@ -11123,6 +11123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c5bce8cb99b78d48977f9d0753aa6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showInteractMsg: 0
+  nonPickMsgshowInteractMsg: 0
+  actionShowMsg: 0
 --- !u!4 &1033364228
 Transform:
   m_ObjectHideFlags: 0
@@ -15152,7 +15155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reachRange: 3
   itemPickUp: 0
-  Player: {fileID: 1908977222}
   pickUpMsg: {fileID: 1033364227}
 --- !u!1 &1915016284
 GameObject:
@@ -16596,6 +16598,7 @@ MonoBehaviour:
   faderHasPlayed: 0
   fireHasStarted: 1
   statesOfFire: {fileID: 49982713}
+  interactMsg: {fileID: 1033364227}
 --- !u!1 &2146387819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 104598, guid: 2394d7d557201f048b00c84246231eb0,

@@ -7,17 +7,14 @@ public class PickUp : MonoBehaviour
     // Start is called before the first frame update
 
     HoldItems holdingItems;
-   // public GameObject boltCutter;
+    private GameObject item;
     private Camera fpsCam;
     private int rayLayerMask;
     public float reachRange = 1.8f;
     
    
     public bool itemPickUp;
-
-    public Transform Player;
-
-     public UiHolder pickUpMsg;
+    public UiHolder pickUpMsg;
     
 
      
@@ -46,15 +43,16 @@ public class PickUp : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, reachRange, rayLayerMask))
         {
-            pickUpMsg.ShowMessage(true);
             PickUpAble p = hit.collider.GetComponent<PickUpAble>();
             GameObject itemObj = hit.collider.gameObject;
-            pickUpMsg.AddUiMsg("hit [E] to pick up " + itemObj.name);
+            pickUpMsg.ShowMessage(itemObj.name,2);
+            pickUpMsg.showInteractMsg = true;
             PickedUpItem(p, itemObj);
         }
         else
         {
-            pickUpMsg.ShowMessage(false);
+            pickUpMsg.ShowMessage(" ",2);
+            pickUpMsg.showInteractMsg = false;
         }
     }
     
@@ -65,7 +63,7 @@ public class PickUp : MonoBehaviour
         {
             if (pickup != null)
             {
-                pickUpMsg.ShowMessage(false);
+               // pickUpMsg.ShowMessage(false);
                 itemPickUp = true;
                 holdingItems.AddItem(item);
                 Debug.Log("picking up " + item);
