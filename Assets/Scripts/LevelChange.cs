@@ -29,7 +29,7 @@ public class LevelChange : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) & playerEntered)
         {
-           SceneManager.LoadScene("forest");
+           SceneManager.LoadScene("woods");
            
         }
     }
