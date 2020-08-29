@@ -22,6 +22,7 @@ public class PlaceSleepingBag : MonoBehaviour
 
     public CampFire statesOfFire;
     public UiHolder interactMsg;
+    public GameManager timeOfDay;
 
 
     private void Start()
@@ -40,18 +41,25 @@ public class PlaceSleepingBag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) & playerEntered)
+        if (playerEntered)
         {
-            PutDownSleepingBag();
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                PutDownSleepingBag();
+            }
+
             if (AbleToSleep())
             {
                Sleep();
             }
         }
+
+        Debug.Log("Time of day" + timeOfDay);
     }
 
     IEnumerator ShowFader()
     {
+        timeOfDay.DayTime = true;
         Debug.Log("this is active");
         yield return new WaitForSeconds(1f);
         fader.SetActive(true);
@@ -61,23 +69,23 @@ public class PlaceSleepingBag : MonoBehaviour
         faderHasPlayed = true;
         yield return new WaitForSeconds(10f);
         fader.SetActive(false);
+        
     }
 
     public bool AbleToSleep()
     {
-        if (statesOfFire.HasFireStarted())
+        if (statesOfFire.HasFireStarted() && timeOfDay.IsNightTime())
         {
-            interactMsg.ShowMessage("to sleep", 1);
-            return true;
+             return true;
         }
         else
         {
             interactMsg.ShowMessage("Cant sleep need fire", 3);
             return false;
         }
-            
 
-        //canSleep = true;
+
+       
     }
 
     public void PutDownSleepingBag()
@@ -91,10 +99,16 @@ public class PlaceSleepingBag : MonoBehaviour
 
     public void Sleep()
     {
-        if (sleepingBagPlaced && AbleToSleep())
+       
+        if (sleepingBagPlaced && timeOfDay.IsNightTime())
         {
-           
-           //StartCoroutine(ShowFader());
+            interactMsg.nonPickMsgshowInteractMsg = true;
+            interactMsg.ShowMessage("to sleep", 1);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                StartCoroutine(ShowFader());
+                interactMsg.nonPickMsgshowInteractMsg = false;
+            }
         }
     }
 
@@ -120,6 +134,7 @@ public class PlaceSleepingBag : MonoBehaviour
 
     void ShowGetFireGoingMsg()
     {
+        if (statesOfFire.HasFireStarted()) { return; }
         interactMsg.nonPickMsgshowInteractMsg = false;
         interactMsg.actionShowMsg = true;
     }

@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
 
     public int day = 1;
+    public bool nightTime;
+    public bool DayTime;
     public GameObject nextNight;
     public ActiveFog controlDays;
     public PlaceSleepingBag playerSlept;
@@ -27,6 +29,18 @@ public class GameManager : MonoBehaviour
             
         }
     }
+
+    public bool IsNightTime()
+    {
+        return nightTime;
+    }
+
+    public bool IsDayTime()
+    {
+        return DayTime;
+    }
+
+
 
 
 

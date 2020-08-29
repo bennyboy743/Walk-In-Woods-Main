@@ -1663,17 +1663,17 @@ PrefabInstance:
     - target: {fileID: 3862536128535191661, guid: 8ec8020fa381a7241a7b6137af3e840e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 254.461
+      value: 175.6
       objectReference: {fileID: 0}
     - target: {fileID: 3862536128535191661, guid: 8ec8020fa381a7241a7b6137af3e840e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.01
+      value: 17.7
       objectReference: {fileID: 0}
     - target: {fileID: 3862536128535191661, guid: 8ec8020fa381a7241a7b6137af3e840e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 151.516
+      value: 127.8
       objectReference: {fileID: 0}
     - target: {fileID: 3862536128535191661, guid: 8ec8020fa381a7241a7b6137af3e840e,
         type: 3}
@@ -3280,6 +3280,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2394d7d557201f048b00c84246231eb0, type: 3}
+--- !u!65 &620601924 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 7364387498295390313, guid: 3b456c7c7d1b84d4ab3b51448b390671,
+    type: 3}
+  m_PrefabInstance: {fileID: 7364387498338016403}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &666155620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000010029073144, guid: e2f030509428b1d4ba687efa90da19fc,
@@ -5003,6 +5009,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   day: 1
+  nightTime: 0
+  DayTime: 0
   nextNight: {fileID: 1682545129}
   controlDays: {fileID: 749528548}
   playerSlept: {fileID: 2141013375}
@@ -8938,9 +8946,10 @@ MonoBehaviour:
   skyBox: {fileID: 2100000, guid: c52c5d7968fa6c9499b0b5752f899bfb, type: 2}
   sun: {fileID: 1122812192}
   faderHasPlayed: 0
-  fireHasStarted: 1
+  fireHasStarted: 0
   statesOfFire: {fileID: 49982713}
   interactMsg: {fileID: 1033364227}
+  timeOfDay: {fileID: 1142179465}
 --- !u!1 &2146387819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 104598, guid: 2394d7d557201f048b00c84246231eb0,
@@ -17126,6 +17135,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirePlace
       objectReference: {fileID: 0}
+    - target: {fileID: 7364387498295390313, guid: 3b456c7c7d1b84d4ab3b51448b390671,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 2.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364387498295390313, guid: 3b456c7c7d1b84d4ab3b51448b390671,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364387498295390313, guid: 3b456c7c7d1b84d4ab3b51448b390671,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 28.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364387498295390313, guid: 3b456c7c7d1b84d4ab3b51448b390671,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 29.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364387498295390314, guid: 3b456c7c7d1b84d4ab3b51448b390671,
+        type: 3}
+      propertyPath: msg
+      value: 
+      objectReference: {fileID: 1033364227}
+    - target: {fileID: 7364387498295390314, guid: 3b456c7c7d1b84d4ab3b51448b390671,
+        type: 3}
+      propertyPath: disable
+      value: 
+      objectReference: {fileID: 620601924}
+    - target: {fileID: 7364387498295390314, guid: 3b456c7c7d1b84d4ab3b51448b390671,
+        type: 3}
+      propertyPath: timeOfDay
+      value: 
+      objectReference: {fileID: 1142179465}
     - target: {fileID: 7364387498295390315, guid: 3b456c7c7d1b84d4ab3b51448b390671,
         type: 3}
       propertyPath: m_LocalPosition.x

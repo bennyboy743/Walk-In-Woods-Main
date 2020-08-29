@@ -13,7 +13,11 @@ public class CampFire : MonoBehaviour
 
     public GameObject[] allLogs;
     private bool playerIntrigger;
-    
+
+    public UiHolder msg;
+
+    public Collider disable;
+    public GameManager timeOfDay;
 
 
 
@@ -41,19 +45,25 @@ public class CampFire : MonoBehaviour
     {
         //fireFlame.intensity = Random.Range(3.8f,9f);
         // fireP.Play();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            AddLogsToFire();
+        }
+        if (playerIntrigger)
+        {
+            InteractWithFire(playerIntrigger);
+        }
 
-        AddLogsToFire();
         Debug.Log(logsThatHaveBeenAdd());
     }
 
      public void StartFire()
-    {
-        if(logsThatHaveBeenAdd() >= maxLogs)
-        {
-            Debug.Log("starting fire");
-            fireStart = true;
-        }
-    }
+     {
+        Debug.Log("starting fire");
+        fireStart = true;
+        msg.actionShowMsg = false;
+        timeOfDay.nightTime = true;
+     }
 
     public int logsThatHaveBeenAdd()
     {
@@ -68,15 +78,37 @@ public class CampFire : MonoBehaviour
         if (logsThatHaveBeenAdd() == maxLogs)
         {
             StartFire();
+            DisableTrigger();
+            return;
         }
-
+        
         //count of how many logs we have added to the fire
         if (Input.GetKeyDown(KeyCode.E) && playerIntrigger && logsThatHaveBeenAdd() < maxLogs)
         {
             logs++;
             allLogs[logs].SetActive(true);
-            Debug.Log("log added" +  logs);
         }
+    }
+
+    void DisableTrigger()
+    {
+       disable.enabled = false;
+       InteractWithFire(false);
+    }
+
+    void InteractWithFire(bool inSpot)
+    {
+        if (inSpot && logsThatHaveBeenAdd() < maxLogs)
+        {
+            msg.ShowMessage("To place logs " + logsThatHaveBeenAdd() + "/6", 1);
+            msg.nonPickMsgshowInteractMsg = true;
+        }
+        else
+        {
+            msg.nonPickMsgshowInteractMsg = false;
+        }
+        
+        
     }
 
     public bool HasFireStarted()
@@ -89,6 +121,7 @@ public class CampFire : MonoBehaviour
         if(other.tag == "Player")
         {
             playerIntrigger = true;
+            
         }
     }
 
@@ -97,6 +130,7 @@ public class CampFire : MonoBehaviour
         if (other.tag == "Player")
         {
             playerIntrigger = false;
+            
         }
     }
 

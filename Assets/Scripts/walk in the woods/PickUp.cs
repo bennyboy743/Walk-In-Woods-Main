@@ -66,7 +66,6 @@ public class PickUp : MonoBehaviour
                // pickUpMsg.ShowMessage(false);
                 itemPickUp = true;
                 holdingItems.AddItem(item);
-                Debug.Log("picking up " + item);
                 Destroy(pickup.transform.gameObject);
             }
 
