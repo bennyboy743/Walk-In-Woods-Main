@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+   
+
     public bool IsNightTime()
     {
         return nightTime;
