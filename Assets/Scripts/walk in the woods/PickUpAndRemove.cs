@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUp : MonoBehaviour
+public class PickUpAndRemove : MonoBehaviour
 {
     // Start is called before the first frame update
 
@@ -12,9 +12,12 @@ public class PickUp : MonoBehaviour
     private int rayLayerMask;
     public float reachRange = 1.8f;
     
+    
    
     public bool itemPickUp;
     public UiHolder pickUpMsg;
+
+    private GameObject holdingTempItem;
     
 
      
@@ -31,6 +34,7 @@ public class PickUp : MonoBehaviour
     private void Update()
     {
         ShowItemAboutToPickUp();
+        
     }
 
  
@@ -45,6 +49,7 @@ public class PickUp : MonoBehaviour
         {
             PickUpAble p = hit.collider.GetComponent<PickUpAble>();
             GameObject itemObj = hit.collider.gameObject;
+            holdingTempItem = itemObj;
             pickUpMsg.ShowMessage(itemObj.name,2);
             pickUpMsg.showInteractMsg = true;
             PickedUpItem(p, itemObj);
@@ -66,10 +71,18 @@ public class PickUp : MonoBehaviour
                // pickUpMsg.ShowMessage(false);
                 itemPickUp = true;
                 holdingItems.AddItem(item);
-                Destroy(pickup.transform.gameObject);
+                pickup.transform.gameObject.SetActive(false);
             }
 
         }
 
+    }
+
+    public void DropItem(GameObject item)
+    {
+        if (holdingItems.HasItemInventory(item))
+        {
+         holdingItems.RemoveItem(item);
+        }
     }
 }

@@ -19,6 +19,15 @@ public class CampFire : MonoBehaviour
     public Collider disable;
     public GameManager timeOfDay;
 
+    public PickUpAndRemove dropItem;
+    public HoldItems inventory;
+
+    private int holdingInt;
+
+    
+    
+    
+
 
 
 
@@ -53,6 +62,10 @@ public class CampFire : MonoBehaviour
         {
             InteractWithFire(playerIntrigger);
         }
+        else
+        {
+            InteractWithFire(false);
+        }
 
         Debug.Log(logsThatHaveBeenAdd());
     }
@@ -83,10 +96,25 @@ public class CampFire : MonoBehaviour
         }
         
         //count of how many logs we have added to the fire
-        if (Input.GetKeyDown(KeyCode.E) && playerIntrigger && logsThatHaveBeenAdd() < maxLogs)
+        if (playerIntrigger && logsThatHaveBeenAdd() < maxLogs)
         {
-            logs++;
-            allLogs[logs].SetActive(true);
+            
+            for (int i = 0; i < inventory.itemsInBagPack.Count; i++)
+            {
+                if (inventory.itemsInBagPack[holdingInt].tag == "log")
+                    dropItem.DropItem(inventory.itemsInBagPack[i]);
+                holdingInt = i;
+            }
+
+            if (inventory.itemsInBagPack[holdingInt].tag == "log")
+            {
+                allLogs[logs].SetActive(true);
+                logs++;
+            }
+            else
+            {
+                Debug.Log("this is not a log");
+            }
         }
     }
 

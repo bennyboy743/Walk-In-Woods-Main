@@ -26,6 +26,7 @@ public class OpenGate : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) & playerInSpot)
         {
             //Debug.Log(hasItem.HasItemInventory().ToString());
+            /*
             if (hasItem.HasItemInventory().ToString() == "BoltCutters")
             {
                 PlayerOpenGate();
@@ -34,7 +35,7 @@ public class OpenGate : MonoBehaviour
             {
                 PlayAudio();
             }
-
+            */
             
         }
     }
