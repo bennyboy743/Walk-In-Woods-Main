@@ -11,6 +11,8 @@ public class OpenGate : MonoBehaviour
     public BoxCollider disableBoxCollider;
     HoldItems hasItem;
     public GameObject gateLock;
+    public GameObject gateKey;
+    private bool gateOpenClose;
 
 
     private void Start()
@@ -22,12 +24,13 @@ public class OpenGate : MonoBehaviour
 
     private void Update()
     {
-        
+        ShowGateMessage();
+
         if (Input.GetKeyDown(KeyCode.E) & playerInSpot)
         {
             //Debug.Log(hasItem.HasItemInventory().ToString());
-            /*
-            if (hasItem.HasItemInventory().ToString() == "BoltCutters")
+           
+            if (hasItem.HasItemInventory(gateKey))
             {
                 PlayerOpenGate();
             }
@@ -35,7 +38,7 @@ public class OpenGate : MonoBehaviour
             {
                 PlayAudio();
             }
-            */
+            
             
         }
     }
@@ -70,14 +73,25 @@ public class OpenGate : MonoBehaviour
         Debug.Log(stateOfGate);
     }
 
+    public void ShowGateMessage()
+    {
+        if (playerInSpot)
+        {
+            uiHolder.nonPickMsgshowInteractMsg = true;
+            uiHolder.ShowMessage("Open Gate", 1);
+        }
+        else
+        {
+            uiHolder.nonPickMsgshowInteractMsg = false;
+            uiHolder.ShowMessage(" ", 1);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            uiHolder.ShowMessage("Open Gate",1);
-            uiHolder.nonPickMsgshowInteractMsg = true;
             playerInSpot = true;
-            
         }
     }
 
@@ -87,7 +101,5 @@ public class OpenGate : MonoBehaviour
         //work in progress, need to work out why it wont close
         //CloseGate();
         playerInSpot = false;
-        uiHolder.ShowMessage(" ",1);
-        uiHolder.nonPickMsgshowInteractMsg = false;
     }
 }
