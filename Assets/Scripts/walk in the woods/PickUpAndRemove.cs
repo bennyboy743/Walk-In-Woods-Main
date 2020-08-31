@@ -18,7 +18,7 @@ public class PickUpAndRemove : MonoBehaviour
     public UiHolder pickUpMsg;
 
     private GameObject holdingTempItem;
-    
+    private int id;    
 
      
     void Start()
@@ -49,7 +49,6 @@ public class PickUpAndRemove : MonoBehaviour
         {
             PickUpAble p = hit.collider.GetComponent<PickUpAble>();
             GameObject itemObj = hit.collider.gameObject;
-            holdingTempItem = itemObj;
             pickUpMsg.ShowMessage(itemObj.name,2);
             pickUpMsg.showInteractMsg = true;
             PickedUpItem(p, itemObj);
@@ -82,7 +81,7 @@ public class PickUpAndRemove : MonoBehaviour
     {
         if (holdingItems.HasItemInventory(item))
         {
-         holdingItems.RemoveItem(item);
+            holdingItems.itemsInBagPack.Remove(item);
         }
     }
 }

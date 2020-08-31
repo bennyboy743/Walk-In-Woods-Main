@@ -15,8 +15,10 @@ public class HoldItems : MonoBehaviour
         //isBoltCutter = true;
     }
 
+   
+
     // Update is called once per frame
-    
+
 
     public void AddItem(GameObject item)
     {
@@ -24,23 +26,11 @@ public class HoldItems : MonoBehaviour
         itemsInBagPack.Add(item);
     }
 
-    public void RemoveItem(GameObject item)
-    {
-        for (int i = 0; i < itemsInBagPack.Count; i++)
-        {
-            if(HasItemInventory(item))
-             itemsInBagPack.RemoveAt(i);
-            Debug.Log("removing " + item + "from inventory");
-        }
-    }
-
-   
-
     public bool HasItemInventory(GameObject item)
     {
         for (int i = 0; i < itemsInBagPack.Count; i++)
         {
-            if(item == itemsInBagPack[i])
+            if(item.tag == itemsInBagPack[i].tag)
             {
                 return true;
             }

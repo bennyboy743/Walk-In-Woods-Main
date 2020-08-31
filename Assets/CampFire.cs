@@ -22,15 +22,13 @@ public class CampFire : MonoBehaviour
     public PickUpAndRemove dropItem;
     public HoldItems inventory;
 
-    private int holdingInt;
+ 
+
+    public GameObject Log;//Just to test something
+
+    int logCountDown;
 
     
-    
-    
-
-
-
-
     private int logs;
     //amount to start the fire
     private int maxLogs;
@@ -56,7 +54,7 @@ public class CampFire : MonoBehaviour
         // fireP.Play();
         if (Input.GetKeyDown(KeyCode.E))
         {
-            AddLogsToFire();
+           AddLogsToFire();
         }
         if (playerIntrigger)
         {
@@ -94,8 +92,25 @@ public class CampFire : MonoBehaviour
             DisableTrigger();
             return;
         }
+
+        if (inventory.HasItemInventory(Log))
+        {
+            if(playerIntrigger && logsThatHaveBeenAdd() < maxLogs)
+            {
+                Debug.Log("Adding to Fire");
+                logs++;
+                
+                allLogs[logs].SetActive(true);
+                dropItem.DropItem(inventory.itemsInBagPack[0]);
+            }
+        }
+        else
+        {
+            Debug.Log("you dont have logs");
+        }
         
         //count of how many logs we have added to the fire
+        /*
         if (playerIntrigger && logsThatHaveBeenAdd() < maxLogs)
         {
             
@@ -108,14 +123,14 @@ public class CampFire : MonoBehaviour
 
             if (inventory.itemsInBagPack[holdingInt].tag == "log")
             {
-                allLogs[logs].SetActive(true);
-                logs++;
+                
             }
             else
             {
                 Debug.Log("this is not a log");
             }
         }
+        */
     }
 
     void DisableTrigger()
