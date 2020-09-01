@@ -80,11 +80,6 @@ public class OpenGate : MonoBehaviour
             uiHolder.nonPickMsgshowInteractMsg = true;
             uiHolder.ShowMessage("Open Gate", 1);
         }
-        else
-        {
-            uiHolder.nonPickMsgshowInteractMsg = false;
-            uiHolder.ShowMessage(" ", 1);
-        }
     }
 
     private void OnTriggerEnter(Collider other)
