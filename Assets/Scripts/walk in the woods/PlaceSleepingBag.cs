@@ -54,7 +54,7 @@ public class PlaceSleepingBag : MonoBehaviour
             }
         }
 
-        Debug.Log("Time of day" + timeOfDay);
+        
     }
 
     IEnumerator ShowFader()

@@ -79,9 +79,14 @@ public class PickUpAndRemove : MonoBehaviour
 
     public void DropItem(GameObject item)
     {
-        if (holdingItems.HasItemInventory(item))
+        if (holdingItems.CheckingItem(item))
         {
+            Debug.Log("has item");
             holdingItems.itemsInBagPack.Remove(item);
+        }
+        else
+        {
+            Debug.Log("cant drop Item as dont have it");
         }
     }
 }

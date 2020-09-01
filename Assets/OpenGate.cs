@@ -30,7 +30,7 @@ public class OpenGate : MonoBehaviour
         {
             //Debug.Log(hasItem.HasItemInventory().ToString());
            
-            if (hasItem.HasItemInventory(gateKey))
+            if (hasItem.itemsInBagPack.Contains(gateKey))
             {
                 PlayerOpenGate();
             }

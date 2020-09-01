@@ -26,7 +26,7 @@ public class CampFire : MonoBehaviour
 
     public GameObject Log;//Just to test something
 
-    int logCountDown;
+    
 
     
     private int logs;
@@ -93,21 +93,17 @@ public class CampFire : MonoBehaviour
             return;
         }
 
-        if (inventory.HasItemInventory(Log))
+        
+        if (inventory.itemsInBagPack.Contains(Log))
         {
             if(playerIntrigger && logsThatHaveBeenAdd() < maxLogs)
             {
-                Debug.Log("Adding to Fire");
                 logs++;
-                
+                dropItem.DropItem(Log);
                 allLogs[logs].SetActive(true);
-                dropItem.DropItem(inventory.itemsInBagPack[0]);
             }
         }
-        else
-        {
-            Debug.Log("you dont have logs");
-        }
+       
         
         //count of how many logs we have added to the fire
         /*
