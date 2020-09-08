@@ -11,9 +11,11 @@ public class PickUpAndRemove : MonoBehaviour
     private Camera fpsCam;
     private int rayLayerMask;
     public float reachRange = 1.8f;
-    
-    
-   
+
+    public InventoryObject inventory;
+
+
+
     public bool itemPickUp;
     public UiHolder pickUpMsg;
 
@@ -47,11 +49,11 @@ public class PickUpAndRemove : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, reachRange, rayLayerMask))
         {
-            PickUpAble p = hit.collider.GetComponent<PickUpAble>();
-            GameObject itemObj = hit.collider.gameObject;
-            pickUpMsg.ShowMessage(itemObj.name,2);
+            var item = hit.collider.GetComponent<Item>();
+            
+            pickUpMsg.ShowMessage(item.name,2);
             pickUpMsg.showInteractMsg = true;
-            PickedUpItem(p, itemObj);
+            PickedUpItem(item);
         }
         else
         {
@@ -61,21 +63,20 @@ public class PickUpAndRemove : MonoBehaviour
     }
     
 
-    public void PickedUpItem(PickUpAble pickup, GameObject item)
+    public void PickedUpItem(Item item)
     {
         if (Input.GetKey(KeyCode.E))
         {
-            if (pickup != null)
+            if (item)
             {
-               // pickUpMsg.ShowMessage(false);
-                itemPickUp = true;
-                holdingItems.AddItem(item);
-                pickup.transform.gameObject.SetActive(false);
+                inventory.AddItem(item.item, 1);
+                Destroy(item.gameObject);
             }
-
         }
 
     }
+
+
 
     public void DropItem(GameObject item)
     {
