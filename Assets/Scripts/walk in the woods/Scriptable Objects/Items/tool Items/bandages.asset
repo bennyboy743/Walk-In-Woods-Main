@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4df684d5c75834f967d004c8db4fef, type: 3}
   m_Name: bandages
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 5744849558316855350, guid: d084c89ccdac89b4bbcca4d30aa91919, type: 3}
   type: 1
   description: 

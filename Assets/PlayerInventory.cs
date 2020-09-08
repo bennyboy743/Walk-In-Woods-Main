@@ -5,16 +5,16 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     public InventoryObject inventory;
+    public GameObject inventoryUi;
+    private bool openClose;
 
-    public void OnTriggerEnter(Collider other)
+    public void OpenInventory(bool state)
     {
-        var item = other.GetComponent<Item>();
-        if (item)
-        {
-            inventory.AddItem(item.item, 1);
-            Destroy(other.gameObject);
-        }
+        inventoryUi.SetActive(state);
     }
+
+  
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -25,6 +25,12 @@ public class PlayerInventory : MonoBehaviour
         {
             inventory.Load();
         }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            openClose = !openClose;
+            
+        }
+        OpenInventory(openClose);
     }
     private void OnApplicationQuit()
     {

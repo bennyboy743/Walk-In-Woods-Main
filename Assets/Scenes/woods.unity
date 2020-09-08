@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe003b33b0dc519478cf19a76a1131d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 18be3adb19a058549862fb3cec927f5b, type: 2}
 --- !u!1 &98522399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,7 +2201,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1337824966}
+    m_TransformParent: {fileID: 2047444994}
     m_Modifications:
     - target: {fileID: 5331720486794145841, guid: 7669849d4708479418470abe7768b94d,
         type: 3}
@@ -2271,12 +2271,12 @@ PrefabInstance:
     - target: {fileID: 5331720486794145841, guid: 7669849d4708479418470abe7768b94d,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 599.52844
+      value: -1220.4714
       objectReference: {fileID: 0}
     - target: {fileID: 5331720486794145841, guid: 7669849d4708479418470abe7768b94d,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1171.7712
+      value: -168.22852
       objectReference: {fileID: 0}
     - target: {fileID: 5331720486794145841, guid: 7669849d4708479418470abe7768b94d,
         type: 3}
@@ -2331,7 +2331,7 @@ PrefabInstance:
     - target: {fileID: 5331720486794145846, guid: 7669849d4708479418470abe7768b94d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7669849d4708479418470abe7768b94d, type: 3}
@@ -5222,42 +5222,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e318266f60803d548a4b409b52b39d8d, type: 3}
---- !u!1 &1337824965
+--- !u!1 &1338467633 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5331720486794145846, guid: 7669849d4708479418470abe7768b94d,
+    type: 3}
+  m_PrefabInstance: {fileID: 565438151}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1337824966}
-  m_Layer: 5
-  m_Name: Inventory
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1337824966
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337824965}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1859057485}
-  m_Father: {fileID: 2047444994}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1342628408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7278,7 +7248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe003b33b0dc519478cf19a76a1131d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: fd981bd0eb01d10438b6dd35e9900163, type: 2}
 --- !u!1 &1930915733
 GameObject:
   m_ObjectHideFlags: 0
@@ -7888,7 +7858,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1337824966}
+  - {fileID: 1859057485}
   - {fileID: 1185983217949952026}
   - {fileID: 1930941468}
   - {fileID: 1169853174}
@@ -8078,7 +8048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe003b33b0dc519478cf19a76a1131d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 8e9d89a3bb426f540aa0bd93d3f3cfde, type: 2}
 --- !u!1001 &2088401711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12404,6 +12374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: d51845346ba94bd4eaeba58e97ad3f9f, type: 2}
+  inventoryUi: {fileID: 1338467633}
 --- !u!4 &3880096800558735900
 Transform:
   m_ObjectHideFlags: 0

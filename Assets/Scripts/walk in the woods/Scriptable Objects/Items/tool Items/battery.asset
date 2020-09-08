@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4df684d5c75834f967d004c8db4fef, type: 3}
   m_Name: battery
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 2915217572711820798, guid: 3040db1925a519c409d38d429f37fd63, type: 3}
   type: 1
   description: 

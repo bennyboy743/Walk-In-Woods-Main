@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4df684d5c75834f967d004c8db4fef, type: 3}
   m_Name: Bolt Cutters
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 1059563231878185965, guid: 48bd5ed21d246c04285769c72dc7f02a, type: 3}
   type: 1
   description: handy to break into locks
