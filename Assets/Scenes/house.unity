@@ -82383,6 +82383,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSController
       objectReference: {fileID: 0}
+    - target: {fileID: 6369626515704128040, guid: 71579ff360a4d7546af1f885636498a4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6369626515704128041, guid: 71579ff360a4d7546af1f885636498a4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71579ff360a4d7546af1f885636498a4, type: 3}
 --- !u!1001 &6869956506001028794

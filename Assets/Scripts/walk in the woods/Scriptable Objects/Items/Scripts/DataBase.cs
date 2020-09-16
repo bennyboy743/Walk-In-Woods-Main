@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Item Database", menuName = "Inventory System/Items/Database")]
-public class DataBase : ScriptableObject, ISerializationCallbackReceiver
+public class DataBase : ScriptableObject,ISerializationCallbackReceiver
 {
     public ItemObject[] Items;
     public Dictionary<ItemObject, int> GetId = new Dictionary<ItemObject, int>();
@@ -24,4 +24,5 @@ public class DataBase : ScriptableObject, ISerializationCallbackReceiver
     {
         
     }
+    
 }

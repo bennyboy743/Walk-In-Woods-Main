@@ -20,7 +20,7 @@ public class CampFire : MonoBehaviour
     public GameManager timeOfDay;
 
     public PickUpAndRemove dropItem;
-    public HoldItems inventory;
+   // public HoldItems inventory;
 
  
 
@@ -93,7 +93,7 @@ public class CampFire : MonoBehaviour
             return;
         }
 
-        
+        /* 
         if (inventory.itemsInBagPack.Contains(Log))
         {
             if(playerIntrigger && logsThatHaveBeenAdd() < maxLogs)
@@ -103,8 +103,9 @@ public class CampFire : MonoBehaviour
                 allLogs[logs].SetActive(true);
             }
         }
-       
-        
+        */
+
+
         //count of how many logs we have added to the fire
         /*
         if (playerIntrigger && logsThatHaveBeenAdd() < maxLogs)

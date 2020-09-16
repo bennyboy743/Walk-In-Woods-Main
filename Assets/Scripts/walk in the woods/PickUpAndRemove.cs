@@ -10,7 +10,7 @@ public class PickUpAndRemove : MonoBehaviour
     private GameObject item;
     private Camera fpsCam;
     private int rayLayerMask;
-    public float reachRange = 1.8f;
+    public float reachRange = 2.8f;
 
     public InventoryObject inventory;
 
@@ -19,13 +19,12 @@ public class PickUpAndRemove : MonoBehaviour
     public bool itemPickUp;
     public UiHolder pickUpMsg;
 
-    private GameObject holdingTempItem;
-    private int id;    
+     
 
      
     void Start()
     {
-        holdingItems = GameObject.FindObjectOfType<HoldItems>();
+        //holdingItems = GameObject.FindObjectOfType<HoldItems>();
         fpsCam = Camera.main;
         LayerMask iRayLM = LayerMask.NameToLayer("InteractRaycast");
         rayLayerMask = 1 << iRayLM.value;
@@ -35,34 +34,16 @@ public class PickUpAndRemove : MonoBehaviour
 
     private void Update()
     {
-        ShowItemAboutToPickUp();
+        
         
     }
 
- 
-
-    public void ShowItemAboutToPickUp()
+    private void FixedUpdate()
     {
-        int x = Screen.width / 2;
-        int y = Screen.height / 2;
-        Ray ray = fpsCam.ScreenPointToRay(new Vector3(x, y));
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, reachRange, rayLayerMask))
-        {
-            var item = hit.collider.GetComponent<Item>();
-            
-            pickUpMsg.ShowMessage(item.name,2);
-            pickUpMsg.showInteractMsg = true;
-            PickedUpItem(item);
-        }
-        else
-        {
-            pickUpMsg.ShowMessage(" ",2);
-            pickUpMsg.showInteractMsg = false;
-        }
+         ShowItemAboutToPickUp();
+        // TestingPickUp();
     }
-    
-
+    /*
     public void PickedUpItem(Item item)
     {
         if (Input.GetKey(KeyCode.E))
@@ -73,9 +54,58 @@ public class PickUpAndRemove : MonoBehaviour
                 Destroy(item.gameObject);
             }
         }
-
+    }
+    */
+    public void TestPickedUpItem(Item item)
+    {
+        if (Input.GetKey(KeyCode.E))
+        {
+           
+            if (item)
+            {
+                Destroy(item.gameObject);
+                inventory.AddItem(item.item, 1);
+                
+            }
+        }
     }
 
+
+    public void ShowItemAboutToPickUp()
+    {
+        int x = Screen.width / 2;
+        int y = Screen.height / 2;
+        Ray ray = fpsCam.ScreenPointToRay(new Vector3(x, y));
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, reachRange, rayLayerMask))
+        {
+            var theItem = hit.collider.GetComponent<Item>();
+            
+            pickUpMsg.ShowMessage(theItem.name,2);
+            pickUpMsg.showInteractMsg = true;
+            TestPickedUpItem(theItem);
+        }
+        else
+        {
+            pickUpMsg.ShowMessage(" ",2);
+            pickUpMsg.showInteractMsg = false;
+        }
+    }
+
+    public void TestingPickUp()
+    {
+        int x = Screen.width / 2;
+        int y = Screen.height / 2;
+        Ray ray = fpsCam.ScreenPointToRay(new Vector3(x, y));
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, reachRange, rayLayerMask))
+        {
+            Destroy(hit.collider.gameObject);
+        }
+    }
+    
+
+    
 
 
     public void DropItem(GameObject item)

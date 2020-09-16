@@ -2516,7 +2516,6 @@ GameObject:
   - component: {fileID: 9127241664073023635}
   - component: {fileID: 9127241664082499091}
   - component: {fileID: 9127241664084520083}
-  - component: {fileID: 5417836724950464625}
   - component: {fileID: 5417836724950464624}
   m_Layer: 0
   m_Name: FPSController
@@ -2795,19 +2794,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &5417836724950464625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9127241664079574387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b1b6f2addeb720479ec1672cb15a6c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsInBagPack: []
 --- !u!114 &5417836724950464624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2821,6 +2807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reachRange: 3
+  inventory: {fileID: 0}
   itemPickUp: 0
   pickUpMsg: {fileID: 0}
 --- !u!1 &9127241664103789923

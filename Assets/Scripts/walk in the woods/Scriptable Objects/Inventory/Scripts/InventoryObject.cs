@@ -13,7 +13,12 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 
     private void OnEnable()
     {
-        database = (DataBase)AssetDatabase.LoadAssetAtPath("Assets/Scripts/walk in the woods/Scriptable Objects/Items/DataBase/Data.asset",typeof(DataBase));
+#if UNITY_EDITOR
+        database = (DataBase)AssetDatabase.LoadAssetAtPath("Assets/Resources/DataBase/Data.asset",typeof(DataBase));
+#else
+        database = Resources.Load<DataBase>("Assets/Resources/DataBase/Data.asset");
+
+#endif    
     }
 
     public void AddItem(ItemObject _item, int _amount)
@@ -49,8 +54,10 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 
     public void OnAfterDeserialize()
     {
+        
         for (int i = 0; i < Container.Count; i++)
             Container[i].item = database.GetItem[Container[i].ID];
+            
         
     }
 
